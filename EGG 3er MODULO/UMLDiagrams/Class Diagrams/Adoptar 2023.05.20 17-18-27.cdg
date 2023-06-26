@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Adoptar">
+  <ClassDiagramComponents>
+    <Class name="AdoptarApp" package="Adoptar" visibility="public" xPosition="91.0" yPosition="71.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Perro" package="Adoptar.Entidades" visibility="public" xPosition="63.0" yPosition="201.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="raza" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="tamanio" type="Tamanio" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="raza"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Tamanio" name="tamanio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRaza" returnType="String" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="String" name="raza"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getTamanio" returnType="Tamanio" visibility="public"/>
+        <Method name="setTamanio" returnType="void" visibility="public">
+          <Argument type="int" name="pocision"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="Adoptar.Entidades" visibility="public" xPosition="595.0" yPosition="191.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="Integer" visibility="private"/>
+        <Field name="dni" type="Integer" visibility="private"/>
+        <Field name="perro" type="Perro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Integer" name="edad"/>
+          <Argument type="Integer" name="dni"/>
+          <Argument type="Perro" name="perro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="Integer" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="Integer" name="edad"/>
+        </Method>
+        <Method name="getDni" returnType="Integer" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="Integer" name="dni"/>
+        </Method>
+        <Method name="getPerro" returnType="Perro" visibility="public"/>
+        <Method name="setPerro" returnType="void" visibility="public">
+          <Argument type="Perro" name="perro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PerroServicio" package="Adoptar.Servicio" visibility="public" xPosition="610.0" yPosition="33.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="perroList" returnType="ArrayList&lt;Perro&gt;" visibility="public"/>
+        <Method name="elejirTamanio" returnType="int" visibility="public"/>
+        <Method name="mostrarPerro" returnType="void" visibility="public">
+          <Argument type="List" name="auxL"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersonaServicio" package="Adoptar.Servicio" visibility="public" xPosition="1099.0" yPosition="417.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="cargarPersona" returnType="Persona" visibility="public"/>
+        <Method name="adoptarPerro" returnType="void" visibility="public">
+          <Argument type="Persona" name="aux"/>
+          <Argument type="ArrayList&lt;Perro&gt;" name="auxL"/>
+        </Method>
+        <Method name="mostrarPersona" returnType="void" visibility="public">
+          <Argument type="Persona" name="aux"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Tamanio" package="Adoptar.Enumeraciones" visibility="public" xPosition="349.0" yPosition="29.0">
+      <Literals>
+        <Literal name="GRANDE"/>
+        <Literal name="MEDIANO"/>
+        <Literal name="CHICO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tamanio" source="Adoptar.Entidades.Perro" target="Adoptar.Enumeraciones.Tamanio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Adoptar.Entidades.Perro" target="Adoptar.Enumeraciones.Tamanio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perro" source="Adoptar.Entidades.Persona" target="Adoptar.Entidades.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Adoptar.Servicio.PersonaServicio" target="Adoptar.Entidades.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Adoptar.Servicio.PerroServicio" target="Adoptar.Entidades.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Adoptar.Entidades.Persona" target="Adoptar.Entidades.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

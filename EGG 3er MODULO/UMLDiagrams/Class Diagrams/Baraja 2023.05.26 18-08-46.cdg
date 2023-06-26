@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Baraja">
+  <ClassDiagramComponents>
+    <Class name="BarajaApp" package="Baraja" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Baraja" package="Baraja.Entidades" visibility="public" xPosition="70.0" yPosition="801.0">
+      <Fields>
+        <Field name="baraja" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="baraja"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getBaraja" returnType="ArrayList&lt;Carta&gt;" visibility="public"/>
+        <Method name="setBaraja" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="baraja"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="Baraja.Entidades" visibility="public" xPosition="388.0" yPosition="139.0">
+      <Fields>
+        <Field name="numero" type="int" visibility="private"/>
+        <Field name="palo" type="Palos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="numero"/>
+          <Argument type="Palos" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="int" name="numero"/>
+        </Method>
+        <Method name="getPalo" returnType="Palos" visibility="public"/>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="Palos" name="palo"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="Baraja.Entidades" visibility="public" xPosition="1048.0" yPosition="623.0">
+      <Fields>
+        <Field name="cartas" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCartas" returnType="ArrayList&lt;Carta&gt;" visibility="public"/>
+        <Method name="setCartas" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartas"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BarajaServicio" package="Baraja.Servicios" visibility="public" xPosition="1734.0" yPosition="755.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearBaraja" returnType="Baraja" visibility="public"/>
+        <Method name="mostrarBarja" returnType="void" visibility="public">
+          <Argument type="Baraja" name="aux"/>
+        </Method>
+        <Method name="barajar" returnType="void" visibility="public">
+          <Argument type="Baraja" name="aux"/>
+        </Method>
+        <Method name="siguienteCarta" returnType="void" visibility="public">
+          <Argument type="Baraja" name="aux"/>
+        </Method>
+        <Method name="cartasDisponibles" returnType="void" visibility="public">
+          <Argument type="Baraja" name="aux"/>
+        </Method>
+        <Method name="darCartas" returnType="void" visibility="public">
+          <Argument type="Baraja" name="aux"/>
+          <Argument type="int" name="cantidad"/>
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartasJugador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CartaServicio" package="Baraja.Servicios" visibility="public" xPosition="1465.0" yPosition="105.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearCartas" returnType="ArrayList&lt;Carta&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonaServicio" package="Baraja.Servicios" visibility="public" xPosition="1203.0" yPosition="313.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarCartasJugador" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Carta&gt;" name="cartaJugador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Palos" package="Baraja.Enumeraciones" visibility="public" xPosition="1062.0" yPosition="9.0">
+      <Literals>
+        <Literal name="ESPADA"/>
+        <Literal name="BASTO"/>
+        <Literal name="ORO"/>
+        <Literal name="COPA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Baraja.Entidades.Persona" target="Baraja.Entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Baraja.Entidades.Baraja" target="Baraja.Entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Baraja.Servicios.PersonaServicio" target="Baraja.Entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Baraja.Entidades.Carta" target="Baraja.Enumeraciones.Palos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Baraja.Servicios.CartaServicio" target="Baraja.Entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="baraja" source="Baraja.Entidades.Baraja" target="Baraja.Entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Carta&gt;"/>
+    <UseRelation source="Baraja.Servicios.BarajaServicio" target="Baraja.Entidades.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="palo" source="Baraja.Entidades.Carta" target="Baraja.Enumeraciones.Palos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Baraja.Servicios.BarajaServicio" target="Baraja.Entidades.Baraja" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cartas" source="Baraja.Entidades.Persona" target="Baraja.Entidades.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Carta&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
