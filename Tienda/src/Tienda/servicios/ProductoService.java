@@ -14,7 +14,7 @@ public class ProductoService {
     }
 
     public void crearProducto(String nombre, Double precio, int codigoFabricante) throws Exception {
-
+        
         try {
             if (nombre == null || nombre.trim().isEmpty()) {
                 throw new Exception("Debe indicar un nombre");
